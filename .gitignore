@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+step-1/getBookById/.classpath
+step-1/getBookById/.project
+step-1/getBookById/.settings/
+step-1/getBookById/target/
+step-2/getBookById/.classpath
+step-2/getBookById/.project
+step-2/getBookById/.settings/
+step-2/getBookById/target/
