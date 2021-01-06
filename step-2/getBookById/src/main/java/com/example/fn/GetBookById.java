@@ -31,16 +31,30 @@ public class GetBookById {
     
     public OutputEvent handleRequest(HTTPGatewayContext hctx, RuntimeContext ctx) {
         System.out.printf("Inside App Name: %s | Function Name: %s | Language: Java \n", APP_NAME, FN_NAME); 
-        System.out.printf("Request URL is: %s\n", hctx.getRequestURL());
-        String[] strArray = hctx.getRequestURL().split("/");
-        System.out.printf("strArray: %s\n", Arrays.toString(strArray));
-        // The format is /v1/books/{bookId} so the bookId is at index 3 in the array
-        String bookId = strArray[3];
-        System.out.printf("BookId: %s\n", bookId); 
         
-        // String book = books.get(bookId);
-        String book = booksDB.getById(bookId);
-        System.out.printf("Get Book: %s\n", book); 
+        String requestURL = hctx.getRequestURL();
+        System.out.printf("Request URL is: %s\n", requestURL);
+        System.out.printf("Request URL is blank: %s\n", requestURL.isBlank());
+        System.out.printf("Request URL is empty: %s\n", requestURL.isEmpty());
+
+        String book = null;
+
+        if (requestURL.isEmpty()) {
+            System.out.printf("Request URL is empty: %s\n", requestURL.isEmpty());
+            booksDB.getAll();
+
+        } else {
+            String[] strArray = requestURL.split("/");
+            System.out.printf("strArray: %s\n", Arrays.toString(strArray));
+            // The format is /v1/books/{bookId} so the bookId is at index 3 in the array
+            String bookId = strArray[3];
+            System.out.printf("BookId: %s\n", bookId); 
+            
+            // book = books.get(bookId);
+            book = booksDB.getById(bookId);
+            System.out.printf("Get Book: %s\n", book);     
+        }
+    
 
         OutputEvent out = null;
 
