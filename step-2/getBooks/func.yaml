@@ -1,0 +1,7 @@
+schema_version: 20180708
+name: getbooks
+version: 0.0.1
+runtime: node
+entrypoint: node func.js
+config:
+    FN_NAME: GetBooks
