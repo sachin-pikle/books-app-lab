@@ -100,7 +100,7 @@ public class BooksDatabaseImpl {
             OracleDatabase db = cl.getDatabase(conn);
             OracleCollection col = db.openCollection(collectionName);
             OracleDocument doc = col.findOne(id);
-            return doc.getContentAsString();
+            return (doc!=null ? doc.getContentAsString() : null);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
