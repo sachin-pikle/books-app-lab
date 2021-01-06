@@ -1,7 +1,7 @@
 schema_version: 20180708
-name: get-books
+name: get-books-node
 version: 0.0.1
 runtime: node
 entrypoint: node func.js
 config:
-    FN_NAME: get-books
+    FN_NAME: get-books-node

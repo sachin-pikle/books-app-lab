@@ -16,6 +16,23 @@ listBooks
 
 getBookByID
 
+```
+fn config app <app-name> BUCKET_NAME <wallet-bucket-name>
+fn config app <app-name> COLLECTION_NAME <collection-name>
+fn config app <app-name> DB_PASSWORD <db-password>
+fn config app <app-name> DB_USER <db-user>
+fn config app <app-name> NAMESPACE <namespace>
+fn config app <app-name> TNS_NAME <tns-name>
+```
+```
+fn config app books-app BUCKET_NAME wallet-bucket-name
+fn config app books-app COLLECTION_NAME collection-name
+fn config app books-app DB_PASSWORD db-password
+fn config app books-app DB_USER db-user
+fn config app books-app NAMESPACE namespace
+fn config app books-app TNS_NAME tns-name
+```
+
 
 ```
 $(npm bin)/artillery quick \
