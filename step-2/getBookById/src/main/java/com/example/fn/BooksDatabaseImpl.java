@@ -42,6 +42,8 @@ public class BooksDatabaseImpl {
 
     public BooksDatabaseImpl() {
         System.out.println("In constructor BooksDatabaseImpl(). Setting up pool data source");
+        
+        System.setProperty("oracle.jdbc.fanEnabled", "false");
         poolDataSource = PoolDataSourceFactory.getPoolDataSource();
         try {
             poolDataSource.setConnectionFactoryClassName(CONN_FACTORY_CLASS_NAME);
@@ -54,7 +56,7 @@ public class BooksDatabaseImpl {
             System.out.println("COLLECTION_NAME = " + collectionName);
             poolDataSource.setInitialPoolSize(1);
             poolDataSource.setMinPoolSize(1);
-            poolDataSource.setMaxPoolSize(1);    
+            poolDataSource.setMaxPoolSize(1);
             System.out.println("Pool data source setup complete.");
             if (needWalletDownload()) {
                 System.out.println("Start wallet download...");
@@ -72,7 +74,7 @@ public class BooksDatabaseImpl {
 
 //     public String handleRequest(String input) throws SQLException, JsonProcessingException, OracleException {
 //         System.out.println("Entering GetBooksById::handleRequest().");
-//         System.setProperty("oracle.jdbc.fanEnabled", "false");
+         
 //         String name = (input == null || input.isEmpty()) ? "world"  : input;
 
 
