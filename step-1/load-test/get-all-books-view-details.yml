@@ -13,11 +13,10 @@ config:
         name: Sustained load
     variables:
       id:
-        - "INVALID-ID"
-        - "ED411A2E5BA34705ADA4835C9C37FF39"
-        - "4DCEFCD41B8345DC8B1035598252BEEC"
-        - "DA8803A9BFB14070964D4DB49478C6FA"
-        - "1A9B0CBFB1D8411E88E140E9DAD19D76"
+        - "5"
+        - "4"
+        - "3"
+        - "2"
         - "076DA47A4377430C9239D1098400B259"
 scenarios:
     # We define one scenario:
