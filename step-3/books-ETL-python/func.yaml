@@ -1,0 +1,15 @@
+schema_version: 20180708
+name: books-ETL-python
+version: 0.0.1
+runtime: python
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 256
+config:
+    FN_NAME: books-ETL-python
+    input-bucket: books-ETL-input
+    processed-bucket: books-ETL-processed
+    ordsbaseurl: ordsbaseurl
+    dbschema: dbschema
+    dbuser: dbuser
+    dbpwd: dbpwd
+    collection: books
