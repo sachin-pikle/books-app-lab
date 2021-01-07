@@ -20,6 +20,7 @@ def soda_insert(ordsbaseurl, dbschema, dbuser, dbpwd, collection, logentries):
     bulkinserturl = sodaurl + 'custom-actions/insert/' + collection + "/"
     headers = {'Content-Type': 'application/json'}
     resp = requests.post(bulkinserturl, auth=auth, headers=headers, data=json.dumps(logentries))
+    print("INFO - DB insert response:: ", resp.json(), flush=True)
     return resp.json()
 
 
@@ -38,24 +39,22 @@ def soda_insert(ordsbaseurl, schema, dbuser, dbpwd, document):
     return r_json
 
 
-def load_data(signer, namespace, bucket_name, object_name, ordsbaseurl, schema, dbuser, dbpwd):
+def load_data(signer, namespace, bucket_name, object_name, ordsbaseurl, schema, dbuser, dbpwd, collection):
     client = oci.object_storage.ObjectStorageClient(config={}, signer=signer)
     try:
         print("INFO - About to read object {0} in bucket {1}...".format(object_name, bucket_name), flush=True)
         # we assume the file can fit in memory, otherwise we have to use the "range" argument and loop through the file
-        csvdata = client.get_object(namespace, bucket_name, object_name)
-        if csvdata.status == 200:
+        jsondata = client.get_object(namespace, bucket_name, object_name)
+        if jsondata.status == 200:
             print("INFO - Object {0} is read".format(object_name), flush=True)
-            input_csv_text = str(csvdata.data.text)
-            # reader = csv.DictReader(input_csv_text.split('\n'), delimiter=',')
-            # for row in reader:
-            #     print("INFO - inserting:")
+            input_json = str(jsondata.data.text)
+            print("INFO - inserting: ", input_json, flush=True)
             #     print("INFO - " + json.dumps(row), flush=True)
-            #     insert_status = soda_insert(ordsbaseurl, schema, dbuser, dbpwd, row)
-            #     if "id" in insert_status["items"][0]:
-            #         print("INFO - Successfully inserted document ID " + insert_status["items"][0]["id"], flush=True)
-            #     else:
-            #         raise SystemExit("Error while inserting: " + insert_status)
+            insert_status = soda_insert(ordsbaseurl, schema, dbuser, dbpwd, collection, input_json)
+            # if "id" in insert_status["items"][0]:
+            #     print("INFO - Successfully inserted document ID " + insert_status["items"][0]["id"], flush=True)
+            # else:
+            #     raise SystemExit("Error while inserting: " + insert_status)
         else:
             raise SystemExit("cannot retrieve the object" + str(object_name))
     except Exception as e:
@@ -117,7 +116,7 @@ def handler(ctx, data: io.BytesIO=None):
     except Exception as e:
         print('ERROR: bad Event!', flush=True)
         raise
-    load_data(signer, namespace, input_bucket, object_name, ordsbaseurl, schema, dbuser, dbpwd)
+    load_data(signer, namespace, input_bucket, object_name, ordsbaseurl, schema, dbuser, dbpwd, collection)
     move_object(signer, namespace, input_bucket, processed_bucket, object_name)
 
     return response.Response(
