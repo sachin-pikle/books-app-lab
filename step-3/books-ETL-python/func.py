@@ -24,21 +24,6 @@ def soda_insert(ordsbaseurl, dbschema, dbuser, dbpwd, collection, logentries):
     return resp.json()
 
 
-def soda_insert(ordsbaseurl, schema, dbuser, dbpwd, document):
-    auth=(dbuser, dbpwd)
-    sodaurl = ordsbaseurl + schema + '/soda/latest/'
-    collectionurl = sodaurl + "regionsnumbers"
-    headers = {'Content-Type': 'application/json'}
-    r = requests.post(collectionurl, auth=auth, headers=headers, data=json.dumps(document))
-    r_json = {}
-    try:
-        r_json = json.loads(r.text)
-    except ValueError as e:
-        print(r.text, flush=True)
-        raise
-    return r_json
-
-
 def load_data(signer, namespace, bucket_name, object_name, ordsbaseurl, schema, dbuser, dbpwd, collection):
     client = oci.object_storage.ObjectStorageClient(config={}, signer=signer)
     try:
