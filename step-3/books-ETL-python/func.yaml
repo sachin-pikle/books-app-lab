@@ -11,5 +11,5 @@ config:
     ordsbaseurl: ordsbaseurl
     dbschema: dbschema
     dbuser: dbuser
-    dbpwd: dbpwd
+    dbpwd_secretocid: dbpwd_secretocid
     collection: books
