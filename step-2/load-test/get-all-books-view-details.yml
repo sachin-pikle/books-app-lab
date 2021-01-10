@@ -1,30 +1,35 @@
 config:
     target: "https://CHANGEME.apigateway.us-ashburn-1.oci.customer-oci.com/v1"
     phases:
-      - duration: 10
-        arrivalRate: 1
-        name: Warm up
-      - duration: 20
-        arrivalRate: 1
-        rampTo: 2
-        name: Ramp up load
       - duration: 60
-        arrivalRate: 2
+        arrivalRate: 10
+        name: Warm up
+      - duration: 120
+        arrivalRate: 10
+        rampTo: 15
+        name: Ramp up load
+      - duration: 600
+        arrivalRate: 15
         name: Sustained load
     variables:
       id:
-        - "1234"
-        - "ED411A2E5BA34705ADA4835C9C37FF39"
-        - "4DCEFCD41B8345DC8B1035598252BEEC"
-        - "DA8803A9BFB14070964D4DB49478C6FA"
-        - "1A9B0CBFB1D8411E88E140E9DAD19D76"
-        - "076DA47A4377430C9239D1098400B259"
+        - "366FD2FEC44F4D6BB0B59DEB7F323B50"
+        - "9C08B47116394B40BF7B2E2B7C930A15"
+        - "6A78DA6B59FF48C98C39A3D542C19C93"
+        - "C37CC0CC8F014B69B75219CBECB47DB9"
+        - "952BE20671C04630B22F0184585D0618"
+        - "1ED39625F9174448B604E50F6AB73DD8"
+        - "FB74843D2A434D3FBFD1A43DDC328AAB"
+        - "F22E0F64152947188EA8E1912EAC8FA0"
+        - "B403248EA59E40FEA7EAE25A9A504306"
+        - "1FAC91AF6DCF470E9FE849B3B2ECC043"
 scenarios:
-    # We define one scenario:
-    - name: "Browse all books"
+    # We define two scenario:
+    # - name: "Browse all books"
+    #   flow:
+    #     - get:
+    #         url: "/books"
+    - name: "Get the details of a book"
       flow:
-        - get:
-            url: "/dbooks"
-        # Get the details of the book:
         - get:
             url: "/books/{{ id }}"

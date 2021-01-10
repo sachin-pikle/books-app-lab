@@ -1,0 +1,27 @@
+[
+    {
+        "isbn": "16",
+        "title": "16 Programming with Java | 6th Edition",
+        "author": "E Balagurusamy"
+    },
+    {
+        "isbn": "17",
+        "title": "17 Java - A Beginner’s Guide",
+        "author": "Herbert Schildt"
+    },
+    {
+        "isbn": "18",
+        "title": "18 Java 8 in Action",
+        "author": "Raoul-Gabriel Urma, Mario Fusco, et al."
+    },
+    {
+        "isbn": "19",
+        "title": "19 Core Python Programming",
+        "author": "R. Nageswara Rao"
+    },
+    {
+        "isbn": "20",
+        "title": "20 Learning with Python",
+        "author": "Allen Downey , Jeffrey Elkner, et al."
+    }
+]

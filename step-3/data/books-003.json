@@ -1,0 +1,12 @@
+[
+    {
+        "isbn": "7",
+        "title": "Java - A Beginner’s Guide",
+        "author": "Herbert Schildt"
+    },
+    {
+        "isbn": "8",
+        "title": "Java 8 in Action",
+        "author": "Raoul-Gabriel Urma, Mario Fusco, et al."
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "isbn": "101",
+        "title": "101 Java - The Complete Reference",
+        "author": "Herbert Schildt"
+    },
+    {
+        "isbn": "102",
+        "title": "102 Effective Java",
+        "author": "Joshua Bloch"
+    },
+    {
+        "isbn": "103",
+        "title": "103 Learning Python",
+        "author": "Mark Lutz"
+    },
+    {
+        "isbn": "104",
+        "title": "104 JavaScript: The Definitive Guide",
+        "author": "David Flanagan"
+    },
+    {
+        "isbn": "105",
+        "title": "105 Oracle SOA Suite 12c Handbook",
+        "author": "Lucas Jellema"
+    }
+]

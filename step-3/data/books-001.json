@@ -1,27 +1,27 @@
 [
     {
-        "isbn": "11",
-        "title": "11 Java - The Complete Reference",
+        "isbn": "1",
+        "title": "Java - The Complete Reference",
         "author": "Herbert Schildt"
     },
     {
-        "isbn": "12",
-        "title": "12 Effective Java",
+        "isbn": "2",
+        "title": "Effective Java",
         "author": "Joshua Bloch"
     },
     {
-        "isbn": "13",
-        "title": "13 Learning Python",
+        "isbn": "3",
+        "title": "Learning Python",
         "author": "Mark Lutz"
     },
     {
-        "isbn": "14",
-        "title": "14 JavaScript: The Definitive Guide",
+        "isbn": "4",
+        "title": "JavaScript: The Definitive Guide",
         "author": "David Flanagan"
     },
     {
-        "isbn": "15",
-        "title": "15 Oracle SOA Suite 12c Handbook",
+        "isbn": "5",
+        "title": "Oracle SOA Suite 12c Handbook",
         "author": "Lucas Jellema"
     }
 ]

@@ -72,26 +72,6 @@ public class BooksDatabaseImpl {
         }
     }
 
-//     public String handleRequest(String input) throws SQLException, JsonProcessingException, OracleException {
-//         System.out.println("Entering GetBooksById::handleRequest().");
-         
-//         String name = (input == null || input.isEmpty()) ? "world"  : input;
-
-
-
-//         System.out.println("*****");
-//         getAll();
-
-// /*
-//  076DA47A4377430C9239D1098400B259		2021-01-04T13:53:10.365240000Z
-// 	1A9B0CBFB1D8411E88E140E9DAD19D76		2021-01-04T13:53:28.793604000Z
-// 	DA8803A9BFB14070964D4DB49478C6FA		2021-01-04T13:53:28.801371000Z
-// 	4DCEFCD41B8345DC8B1035598252BEEC		2021-01-04T13:53:28.808104000Z
-// 	ED411A2E5BA34705ADA4835C9C37FF39
-// */
-//         return getById("076DA47A4377430C9239D1098400B259");
-//     }
-
     public String getById(String id) {
         System.out.println("Entering BooksDatabaseImpl::getById(). Id=" + id);
         try (Connection conn = poolDataSource.getConnection()) {
